@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+/* Sidebar styling */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #333;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar h2 {
+    padding: 0px 8px 6px 16px;
+    color: #ddd; 
+}
+
+.sidebar h2:hover {
+    color: #f1f1f1;
+}  
+  
+.sidebar a {
+    display: block;
+    background-color: #444;
+    color: #ddd;
+    padding: 16px;
+    text-decoration: none;
+}
+   
+.sidebar a.active {
+    background-color: #ffbeef;
+    color: #333;
+}
+  
+.sidebar a:hover:not(.active) {
+    background-color: #222;
+    color: #f1f1f1;
+}
+
+/* Content styling */
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100%;
+}
+
+div.content a {
+    text-decoration: none;
+}
+
+/* Commands table styling */
+#commands {
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#commands td, #customers th {
+    border: 1px, solid, #ddd;
+    padding: 8px;
+}
+
+#commands tr:nth-child(even){background-color: #f2f2f2;}
+
+#commands tr:hover {background-color: #ddd;}
+
+#commands th {
+  padding: 12px;
+  text-align: left;
+  background-color: #ffbeef;
+}
+
+/* Scale for screen size */
+@media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+}
+  
+@media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+}
