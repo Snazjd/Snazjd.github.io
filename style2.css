@@ -59,8 +59,8 @@ body {
     width: 100%;
 }
 
-#commands td, #customers th {
-    border: 1px, solid, #ddd;
+#commands td, #commands th {
+    border: 1px, solid, #000;
     padding: 8px;
 }
 
