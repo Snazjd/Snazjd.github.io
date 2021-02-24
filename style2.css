@@ -42,13 +42,13 @@ body {
 }
 
 /* Content styling */
-div.content {
+.content {
     margin-left: 200px;
     padding: 1px 16px;
     height: 100%;
 }
 
-div.content a {
+.content a {
     text-decoration: none;
 }
 
