@@ -25,19 +25,16 @@ body {
   
 .sidebar a {
     display: block;
-    background-color: #444;
-    color: #ddd;
+    color: #818181;
     padding: 16px;
     text-decoration: none;
 }
    
 .sidebar a.active {
-    background-color: #ffbeef;
-    color: #333;
+    color: #ffbeef;
 }
   
 .sidebar a:hover:not(.active) {
-    background-color: #222;
     color: #f1f1f1;
 }
 
