@@ -8,26 +8,40 @@
 </head>
 
 <body>
-  <div class="w3-bar w3-white">
-    <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-text-black w3-mobile" onclick="navigate()">About</a>
-    <a href="#projects" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-mobile" onclick="navigate()">Projects</a>
-    <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-mobile" onclick="navigate()">Resume</a>
-    <i class="fa-brands fa-linkedin-in"></i>
-    <i class="fa-brands fa-instagram"></i>
+  <div class="w3-top">
+    <div class="w3-bar w3-white">
+      <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-text-black w3-hide-small" onclick="navigate()">About</a>
+      <a href="#projects" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-hide-small" onclick="navigate()">Projects</a>
+      <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-hide-small" onclick="navigate()">Resume</a>
+      <a href="https://www.linkedin.com/in/jonathan-reynolds-purdue/" class="w3-bar-item w3-button w3-hide-small"></a><i class="fa-brands fa-linkedin-in"></i>
+      <a href="https://www.linkedin.com/in/jonathan-reynolds-purdue/" class="w3-bar-item w3-button w3-hide-small"></a><i class="fa-brands fa-instagram"></i>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="showSmallBar()">&#9776;</a>
+    </div>
   </div>
-  <div class="content" id="content">
-    <div class="about" id="about">
-      <div class="title" id="title">
-        <h2>About Me</h2>
+
+    <div id="smallBar" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-text-black" onclick="navigate()">About</a>
+      <a href="#projects" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black" onclick="navigate()">Projects</a>
+      <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black" onclick="navigate()">Resume</a>
+    </div>
+
+  <section class="w3-container w3-content" style="max-width:800px">
+    <h1>About Me</h1>
         <p>Hi there. My name is Jonathan (Jack) Reynolds. I am a mechanical engineer with a BSME from Purdue University, specializing in CAD modeling, rapid prototyping, and mechanical drafting. My experience spans academic projects, professional work, and personal engineering endeavors, with a focus on aerospace and robotics.
         <p>I thrive in fast-paced, collaborative environments where clear communication and teamwork drive innovation. Whether refining designs for manufacturability or iterating prototypes to solve real-world challenges, I bring precision and creativity to every project.</p>
         <p>Outside of engineering, I enjoy playing tabletop and board games, following Formula 1, golfing, and watching college basketball.</p>
-      </div>
-    </div> 
-  </div>
+  </section>
 <script>
   function navigate(){
 
+  }
+  function snowSmallBar() {
+    var x = document.getElementById("smallBar");
+    if (x.className.indexOf("w3-show") == -1) {
+     x.className += " w3-show";
+    } else { 
+      x.className = x.className.replace(" w3-show", "");
+    }
   }
 </script>
 
