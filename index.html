@@ -1,37 +1,36 @@
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style.css">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Jonathan Reynolds</title>
   <link rel="icon" type="image/x-icon" href="/images/JR Logo.ico">
 </head>
 
 <body>
-  <div class="topnav" id="myTopnav">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
+  <div class="w3-bar w3-white">
+    <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-text-black w3-mobile" onclick="navigate()">About</a>
+    <a href="#projects" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-mobile" onclick="navigate()">Projects</a>
+    <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-mobile" onclick="navigate()">Resume</a>
+    <i class="fa-brands fa-linkedin-in"></i>
+    <i class="fa-brands fa-instagram"
   </div>
-  <div class="about" id="about">
-    <div class="title" id="title">
-      <h1>About Me</h1>
-      <p>Hi there. My name is Jonathan (Jack) Reynolds. I am a mechanical engineer with a BSME from Purdue University, specializing in CAD modeling, rapid prototyping, and mechanical drafting. My experience spans academic projects, professional work, and personal engineering endeavors, with a focus on aerospace and robotics.
-      <p>I thrive in fast-paced, collaborative environments where clear communication and teamwork drive innovation. Whether refining designs for manufacturability or iterating prototypes to solve real-world challenges, I bring precision and creativity to every project.</p>
-      <p>Outside of engineering, I enjoy playing tabletop and board games, following Formula 1, golfing, and watching college basketball.</p>
-    </div>
-  </div> 
+  <div class="content" id="content">
+    <div class="about" id="about">
+      <div class="title" id="title">
+        <h2>About Me</h2>
+        <p>Hi there. My name is Jonathan (Jack) Reynolds. I am a mechanical engineer with a BSME from Purdue University, specializing in CAD modeling, rapid prototyping, and mechanical drafting. My experience spans academic projects, professional work, and personal engineering endeavors, with a focus on aerospace and robotics.
+        <p>I thrive in fast-paced, collaborative environments where clear communication and teamwork drive innovation. Whether refining designs for manufacturability or iterating prototypes to solve real-world challenges, I bring precision and creativity to every project.</p>
+        <p>Outside of engineering, I enjoy playing tabletop and board games, following Formula 1, golfing, and watching college basketball.</p>
+      </div>
+    </div> 
+  </div>
 <script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
+  function navigate(){
+
   }
-}
 </script>
+
 </body>
