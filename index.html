@@ -1,48 +1,282 @@
+<!DOCTYPE html>
+<html>
+
 <head>
+  <title>Jonathan Reynolds</title>
+  <link rel="icon" type="image/x-icon" href="/images/JR_Logo.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Jonathan Reynolds</title>
-  <link rel="icon" type="image/x-icon" href="/images/JR Logo.ico">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Montserrat", sans-serif
+    }
+
+    .pointer {
+      cursor: pointer;
+    }
+
+    .w3-row-padding img {
+      margin-bottom: 12px
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    /* Container needed to position the overlay. Adjust the width as needed */
+    .container {
+      position: relative;
+    }
+
+    /* Make the image to responsive */
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* The overlay effect - lays on top of the container and over the image */
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgb(0, 0, 0);
+      background: rgba(0, 0, 0, 0.5);
+      /* Black see-through */
+      color: #f1f1f1;
+      width: 100%;
+      transition: .5s ease;
+      opacity: 0;
+      color: white;
+      padding: 5px;
+      text-align: center;
+    }
+
+    /* When you mouse over the container, fade in the overlay title */
+    .container:hover .overlay {
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="w3-top">
-    <div class="w3-bar w3-white">
-      <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-text-black w3-hide-small" onclick="navigate()">About</a>
-      <a href="#projects" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-hide-small" onclick="navigate()">Projects</a>
-      <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black w3-hide-small" onclick="navigate()">Resume</a>
-      <a href="https://www.linkedin.com/in/jonathan-reynolds-purdue/" class="w3-bar-item w3-button w3-hide-small"></a><i class="fa-brands fa-linkedin-in"></i>
-      <a href="https://www.linkedin.com/in/jonathan-reynolds-purdue/" class="w3-bar-item w3-button w3-hide-small"></a><i class="fa-brands fa-instagram"></i>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="showSmallBar()">&#9776;</a>
+
+  <!-- Hidden Sidebar (only on small, reveals when clicked on menu icon)-->
+  <nav class="w3-sidebar w3-white w3-animate-right w3-xxlarge w3-hide-large w3-hide-medium"
+    style="display:none;padding-top:64px;right:0;z-index:2" id="mySidebar">
+    <a href="javascript:void(0)" onclick="closeNav()"
+      class="w3-button w3-white w3-xxxlarge w3-display-topright w3-text-grey w3-hover-white w3-hover-text-black"
+      style="padding:0 12px;">
+      <i class="fa fa-remove"></i>
+    </a>
+    <div class="w3-bar-block w3 w3-white w3-center">
+      <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-white w3-hover-text-black"
+        onclick="closeNav()">About</a>
+      <a href="#projects" class="w3-bar-item w3-button w3-text-grey w3-hover-white w3-hover-text-black"
+        onclick="closeNav()">Projects</a>
+      <a href="https://www.linkedin.com/in/jonathan-reynolds-purdue/"
+        class="w3-button w3-xlarge w3-center w3-text-grey w3-hover-text-black w3-hover-white">
+        <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <!-- Navbar (hidden when small)-->
+  <nav class="w3-bar w3-top w3-center w3-white w3-padding">
+    <!-- JR Logo -->
+    <a href="#"
+      class="w3-button w3-xlarge w3-hover-white w3-left"><img src="/images/JR_Logo.png" id="JR Logo" alt="JR Logo" class="w3-image" width="50"></a>
+    <!-- Nav Locations -->
+    <a href="#about" class="w3-button w3-text-grey w3-hover-white w3-hover-text-blac w3-hide-small" style=>About</a>
+    <a href="#projects" class="w3-button w3-text-grey w3-hover-white w3-hover-text-black w3-hide-small">Projects</a>
+    <!-- Socials -->
+    <a href="https://www.linkedin.com/in/jonathan-reynolds-purdue/"
+      class="w3-button w3-xxlarge w3-right w3-text-grey w3-hover-text-black w3-hover-white w3-hide-small">
+      <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    <!-- Menu icon to open sidebar -->
+    <a class="w3-button w3-xxlarge w3-right w3-text-grey w3-hover-white w3-hover-text-black w3-hide-large w3-hide-medium"
+      onclick="openNav()"><i class="fa fa-bars"></i></a>
+  </nav>
+
+  <!-- About Section -->
+  <div class="w3-container" style="padding:64px 32px" id="about">
+    <h2 class="w3-center">About</h2>
+    <div class="w3-col l3"></div>
+    <div class="w3-col s12 m8 l8" style="padding-left:0px; padding-right:32px">
+      <div class="content w3-justify w3-right" style="max-width:900px">
+        <p>Hi there. My name is Jonathan (Jack) Reynolds. I am a mechanical engineer with a BSME from Purdue
+          University,
+          specializing in CAD modeling, rapid prototyping, and mechanical drafting. My experience spans academic
+          projects, professional work, and personal engineering endeavors, with a focus on aerospace and robotics.</p>
+        <p>I thrive in fast-paced, collaborative environments where clear communication and teamwork drive innovation.
+          Whether refining designs for manufacturability or iterating prototypes to solve real-world challenges, I
+          bring
+          precision and creativity to every project.</p>
+        <p>Outside of engineering, I enjoy playing tabletop and board games, following Formula 1, golfing, and
+          watching
+          college basketball.</p>
+      </div>
+    </div>
+    <div class="w3-col m4 l4">
+      <img src="/images/headshot_12-24.jpg" class="w3-image w3-round-xlarge" style="max-height:300px">
+      <div style="padding-top:32px">
+        <button onclick="document.getElementById('resume modal').style.display='block'" class="w3-button w3-light-grey w3-padding-large"><i class="fa fa-download"></i> Download Resume</button>
+      </div>
     </div>
   </div>
 
-    <div id="smallBar" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-      <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-text-black" onclick="navigate()">About</a>
-      <a href="#projects" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black" onclick="navigate()">Projects</a>
-      <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-black" onclick="navigate()">Resume</a>
+  <!-- Resume Modal -->
+  <div id="resume modal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container">
+        <span onclick="document.getElementById('resume modal').style.display='none'"
+          class="w3-button w3-xlarge w3-display-topright w3-text-grey w3-hover-white w3-hover-text-black">
+      <i class="fa fa-remove"></i></span>
+      </header>
+      <a href="Jonathan_Reynolds_Resume.pdf" download
+        class="w3-button w3-light-grey w3-padding-large w3-display-bottommiddle"><i class="fa fa-download"></i> Download
+        Resume</a>
+      <img src="./images/Jonathan_Reynolds_Resume.png" class="modal-content w3-image" style="height:100%">
     </div>
 
-  <section class="w3-container w3-content" style="max-width:800px">
-    <h1>About Me</h1>
-        <p>Hi there. My name is Jonathan (Jack) Reynolds. I am a mechanical engineer with a BSME from Purdue University, specializing in CAD modeling, rapid prototyping, and mechanical drafting. My experience spans academic projects, professional work, and personal engineering endeavors, with a focus on aerospace and robotics.
-        <p>I thrive in fast-paced, collaborative environments where clear communication and teamwork drive innovation. Whether refining designs for manufacturability or iterating prototypes to solve real-world challenges, I bring precision and creativity to every project.</p>
-        <p>Outside of engineering, I enjoy playing tabletop and board games, following Formula 1, golfing, and watching college basketball.</p>
-  </section>
-<script>
-  function navigate(){
+  </div>
+  </div>
+  </div>
 
-  }
-  function snowSmallBar() {
-    var x = document.getElementById("smallBar");
-    if (x.className.indexOf("w3-show") == -1) {
-     x.className += " w3-show";
-    } else { 
-      x.className = x.className.replace(" w3-show", "");
-    }
-  }
-</script>
+
+  <!-- Projects Section -->
+  <div class="w3-container" style="padding:0px 32px" id="projects">
+    <div class="w3-content">
+      <h2 class="w3-center">Projects</h2>
+
+      <!-- Grid for photos -->
+      <div class="w3-row-padding" style="margin:0 -32px">
+        <div class="w3-row-padding w3-margin-top">
+          <div class="w3-third">
+            <div onclick="document.getElementById('next-presso modal').style.display='block'" class="w3-card pointer">
+              <div class="container">
+                <img src="/images/Next-Presso.jpg" alt="Next-Presso" class="image" style="width:100%">
+                <div class="overlay" style="width:100%">
+                  <div class="w3-container">
+                    <h4>Next-Presso</h4>
+                    <p>Award-winning automated Nespresso capsule repackaging machine</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w3-third">
+            <div class="w3-card pointer">
+              <div class="container">
+                <img src="/images/Buz.jpg" alt="Buz Robot" class="image" style="width:100%">
+                <div class="overlay" style="width:100%">
+                  <div class="w3-container">
+                    <h4>The Buz</h4>
+                    <p>Autonomous pollen sorting and delivery robot</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w3-third">
+            <div class="w3-card pointer">
+              <div class="container">
+                <img src="/images/BB-P.jpg" alt="BB-P Droid RC Toy" class="image" style="width:100%">
+                <div class="overlay" style="width:100%">
+                  <div class="w3-container">
+                    <h4>BB-P</h4>
+                    <p>Award-winning BB-8 inspired RC Toy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+          <div class="w3-half">
+            <div class="w3-card">
+              <div class="container">
+                <img src="/images/HADES.jpg" alt="HADES Robot Arm" class="image" style="width:100%">
+                <div class="overlay" style="width:100%">
+                  <div class="w3-container">
+                    <h4>HADES</h4>
+                    <p>Trade show 7-DoF robot arm</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w3-half">
+            <div class="w3-card">
+              <div class="container">
+                <img src="/images/HAB_Launcher.jpg" alt="HAB Launcher" class="image" style="width:100%">
+                <div class="overlay" style="width:100%">
+                  <div class="w3-container">
+                    <h4>HAB Launcher</h4>
+                    <p>Semi-autonomous high-altitude balloon launch structure</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- End photo grid -->
+      <!-- Modal for Next-Presso -->
+      <div id="next-presso modal" class="w3-modal">
+        <div class="w3-modal-content">
+          <header class="w3-container w3-teal">
+            <span onclick="document.getElementById('next-presso modal').style.display='none'"
+        class="w3-button w3-display-topright">&times;</span>
+            <h2>Modal Header</h2>
+          </header>
+          <div class="w3-container">
+            <p>Some text..</p>
+            <p>Some text..</p>
+          </div>
+          <footer class="w3-container w3-teal">
+            <p>Modal Footer</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity">
+    <p class="w3-small">This website was made with W3schools Spaces. Make your own free website today!</p>
+  </footer>
+  <!-- END PAGE CONTENT -->
+  </div>
+
+  <script>
+    // Open and close sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+  </script>
 
 </body>
+
+</html>
